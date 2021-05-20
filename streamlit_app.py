@@ -1,7 +1,7 @@
 #INSTALAR LOS PAQUETES NECESARIOS
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import datetime as dt
 from datetime import datetime
 import streamlit as st
@@ -87,11 +87,11 @@ tb = TensorBoard('logs')
 history = model.fit(X_train, y_train, shuffle=True, epochs=30, callbacks=[es, rlr, mcp, tb], validation_split=0.2, verbose=1, batch_size=256)
 
 #MOSTRAR ENTRENAMIENTO
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.legend(['loss','val_loss'])
-plt.grid()
-plt.show()
+#plt.plot(history.history['loss'])
+#plt.plot(history.history['val_loss'])
+#plt.legend(['loss','val_loss'])
+#plt.grid()
+#plt.show()
 
 datelist_future = pd.date_range(datelist_train[-1], periods=n_future, freq='1H').tolist()
 
@@ -120,12 +120,12 @@ st.dataframe(pd.DataFrame(PREDICTIONS_FUTURE))
 
 hora = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
 
-plt.plot(hora,PREDICTIONS_FUTURE)
-plt.title('Generacion al día siguiente')
-plt.xlabel('Hora')
-plt.ylabel('Potencia [MW]')
-plt.grid()
-plt.show()
+#plt.plot(hora,PREDICTIONS_FUTURE)
+#plt.title('Generacion al día siguiente')
+#plt.xlabel('Hora')
+#plt.ylabel('Potencia [MW]')
+#plt.grid()
+#plt.show()
 
 char_data = pd.DataFrame(PREDICTIONS_FUTURE)
 st.line_chart(char_data)
